@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import Header from "./header/header";
+import Menu from "./header/Menu/menu";
+import Content from "./header/Content/content";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main"> 
+      <Header />
+      <Menu/>
+      <Content/>
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App; //Позволяю другим файлам получить Доступ функции к App
