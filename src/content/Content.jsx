@@ -4,14 +4,15 @@ import Task from "../task/Task";
 const Content = (props) => {
     return (
         <ul className="todo__items"> 
-            {props.tasks.map((task) => 
+            {props.tasks.map((task) => (
                 <div key = {task.id} className="todo__item"> 
-                    <Task value = {task.value}
+                    <Task 
+                    value = {task.value}
                     id = {task.id}
                     date = {new Date().toLocaleDateString().slice(0, -3)}
                     />
                 </div>
-            )}
+            ))}
         </ul>
     )
 }
@@ -33,6 +34,17 @@ export default Content;
 //console.log(login1);
 //console.log(login2);
 
+//деструктуризация добавление элементов в существующий массив
+//const logins = ['user', 'admin']
+//const newlogins = [... logins, 'guest']
+
+//пример с обьектом
+//const user = {
+    //login: 'admin'
+    //password: '123456'
+//}
+
+//console.log({}...user, type: 'client'})
 
 //хуки это функции которые позволяет взаимодейстовать с приложением, взаимодействовать с тегами, с данными и т.д
 // основные 5 хуков
