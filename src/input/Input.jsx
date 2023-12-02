@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Input = (id, setId, tasks, setTasks) => {
+const Input = ({id, setId, tasks, setTasks}) => {
   const [value, setValue] = useState ('');
   const sendTask = (event) => {
     event.preventDefault();
