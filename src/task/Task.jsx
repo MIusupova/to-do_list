@@ -1,18 +1,18 @@
-const Task = (props) => {
-    const handleDeleteTask = (id) => {
-        console.log(id);
-    }
-    const handleCompleteTask = (id) => {
-        console.log(id);
-    }
+const Task = ({value, id, date, setTasks, completed}) => {
+    const handleDeleteTask = (id) => 
+        setTasks((prev) => prev.filter((item) => item.id !== id));
+    const handleCompleteTask = (id) => 
+        setTasks ((prev) => 
+        prev.map((item) =>
+            item.id === id ? { ... item, completed: !item.completed} : item))
     return (
-            <div>        
-                <span className="todo__task"> {props.value} </span>
+            <div className={"todo__item" + (completed ? " completed" : "" )}>        
+                <span className="todo__task"> {value} </span>
                 <span className="todo__action todo__action_complete" 
-                onClick = {() => handleCompleteTask(props.id)}></span>
+                onClick = {() => handleCompleteTask(id)}></span>
                 <span className="todo__action todo__action_delete" 
-                onClick = {() => handleDeleteTask(props.id)}></span>
-                <div className="todo__date">{props.date}</div>
+                onClick = {() => handleDeleteTask(id)}></span>
+                <div className="todo__date">{date}</div>
             </div>
     )
 }

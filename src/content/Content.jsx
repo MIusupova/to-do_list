@@ -1,17 +1,17 @@
 import Task from "../task/Task";
 //передаю массив tasks с App через props
 //одно выражение один код, пишем только то, что возвращает какой-то результат
-const Content = (props) => {
+const Content = ({tasks, setTasks}) => {
     return (
         <ul className="todo__items"> 
-            {props.tasks.map((task) => (
-                <div key = {task.id} className="todo__item"> 
-                    <Task 
-                    value = {task.value}
-                    id = {task.id}
+            {tasks.map(({id, value, completed}) => (
+                <Task 
+                    value = {value}
+                    id = {id}
                     date = {new Date().toLocaleDateString().slice(0, -3)}
+                    completed = {completed}
+                    setTasks= {setTasks}
                     />
-                </div>
             ))}
         </ul>
     )

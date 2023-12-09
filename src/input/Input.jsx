@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Input = ({id, setId, tasks, setTasks}) => {
   const [value, setValue] = useState ('');
@@ -8,14 +8,19 @@ const Input = ({id, setId, tasks, setTasks}) => {
       ...tasks,
       {
         value: value,
+        date: new Date().toLocaleString().slice(0, -3),
         id: id,
         completed: false,
       }
-    ])
+    ]);
+    setValue ('')
     setId(id + 1);
+  };
+  useEffect (() => {
     localStorage.setItem('tasks', JSON.stringify(tasks))
     localStorage.setItem('id', JSON.stringify(id))
-  };
+  }, [tasks, id])
+    
     return (
         <form className="todo__input" onSubmit={sendTask}>
           <input 

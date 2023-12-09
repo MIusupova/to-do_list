@@ -8,7 +8,7 @@ const App = () => {
      localStorage.getItem('tasks') !== null ? JSON.parse(localStorage.getItem('tasks')) : [],
     );
   const [id, setId] = useState(
-      localStorage.getItem('id') !== null ? JSON.parse(localStorage.getItem('tasks')) : 0,
+      localStorage.getItem('id') !== null ? JSON.parse(localStorage.getItem('id')) : 0,
      );
     
 //разделение приложения на компоненты (input, select и.д)и отдельный компонент для задач
@@ -16,7 +16,7 @@ const App = () => {
     <div className="todo">
       <Input id = {id} setId = {setId} setTasks = {setTasks} tasks = {tasks}/>
       <Select/>
-      <Content tasks={tasks}/> 
+      <Content tasks={tasks} setTasks={setTasks}/> 
     </div>
     //передаем массив в props
   )
